@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SUSTERM service-group.dtd">
+<service-group>
+
+	<name replace-wildcards="yes">%h}</name>
+	<service>
+		<type>_ipp_.tcp</type>
+		<subtype>_universal._sub._ipp._tcp</subtype>
+		<port>631</port>
+		<txt-record>txtvers=1</txt-record>
+		<txt-record>qtotal=1</txt-record>
+		<txt-record>rp=printers/LabelWriter-450-Twin</txt-record>
+		<txt-record>ty=LabelWriter 450 Twin</txt-record>
+		<txt-record>adminurl=http://localhost:631/printers/LabelWriter-450-Twin</txt-record>
+		<txt-record>note=Office</txt-record>
+		<txt-record>pdl=application/pdf,application/postscript,image/jpeg,mime/png,mime/urn</txt-record>
+		<txt-record>URF=none</txt-record>
+		<txt-record>air=username,password</txt-record>
+	</service>
+
+	<service>
+		<type>_printer._tcp</type>
+		<port>631</port>
+	</service>
+	<service>
+		<type>_ipp._tcp</type>
+		<port>631</port>
+	</service>
+	<service>
+		<type>_ipps._tcp</type>
+		<port>631</port>
+	</service>
+	<service>
+		<type>_http._tcp</type>
+		<port>631</port>
+	</service>
+</service-group>

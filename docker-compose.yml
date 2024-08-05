@@ -1,0 +1,26 @@
+name: raspi-containerized
+
+services:
+  cups:
+    build: ./cups
+    
+    volumes:
+      - /var/run/dbus:/var/run/dbus
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+  zerotier:
+    devices:
+      - /dev/net/tun
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - /var/lib/zerotier-one:/var/lib/zerotier-one
+    image: zyclonite/zerotier
+    environment:
+      ZEROTIER_JOIN_NETWORKS: \${ZEROTIER_NETWORK_ID}
+  go-socks5-proxy:
+    container_name: socks5
+    ports:
+      - 1080:1080
+    image: serjs/go-socks5-proxy
